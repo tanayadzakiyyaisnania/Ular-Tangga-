@@ -1,0 +1,338 @@
+/* ===================== RESET & BASE ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* ===================== LETTER SCREEN ===================== */
+#letterScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+#envelope {
+  width: 220px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-bottom: 30px;
+}
+
+#envelope:hover {
+  transform: scale(1.05);
+}
+
+#envelopeBody {
+  width: 220px;
+  height: 150px;
+  background: #f5c842;
+  border-radius: 4px 4px 8px 8px;
+  border: 3px solid #c9a200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  padding-bottom: 40px;
+}
+
+#envelopeLabel {
+  font-size: 15px;
+  font-weight: bold;
+  color: #5a3e00;
+  line-height: 1.5;
+}
+
+#envelopeFlap {
+  width: 0;
+  height: 0;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-top: 80px solid #e6a800;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform-origin: top center;
+  transition: transform 0.5s ease;
+}
+
+#envelope.open #envelopeFlap {
+  transform: rotateX(180deg);
+}
+
+#letterContent {
+  display: none;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#letterPaper {
+  background: #fffde7;
+  border: 2px solid #c9a200;
+  border-radius: 10px;
+  padding: 28px 32px;
+  max-width: 460px;
+  text-align: left;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+#letterPaper::before {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 2px;
+  background: #c9a200;
+  margin: 0 auto 16px;
+}
+
+#letterPaper h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  color: #5a3e00;
+}
+
+#letterPaper ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#letterPaper ul li {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px dashed #e0c060;
+}
+
+#letterPaper ul li:last-child {
+  border-bottom: none;
+}
+
+.letterSign {
+  text-align: center;
+  font-style: italic;
+  color: #7a5c00;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+#startBtn {
+  display: block;
+  width: 100%;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#startBtn:hover {
+  background: #388e3c;
+}
+
+/* ===================== SETUP PANEL ===================== */
+#setup {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 20px 30px;
+  margin-bottom: 16px;
+}
+
+#setup label,
+#setup span {
+  font-size: 14px;
+  color: #444;
+}
+
+#setup select {
+  margin: 4px 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+}
+
+#playerTypes {
+  margin-top: 10px;
+  text-align: left;
+}
+
+#playerTypes br {
+  margin-bottom: 4px;
+}
+
+/* ===================== BUTTONS ===================== */
+button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 4px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #357abd;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* ===================== INFO BAR ===================== */
+#info {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #222;
+  min-height: 24px;
+}
+
+/* ===================== GAME CONTAINER ===================== */
+.container {
+  position: relative;
+  width: 500px;
+  margin: 16px auto;
+}
+
+/* ===================== BOARD GRID ===================== */
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+}
+
+.cell {
+  border: 1px solid #333;
+  height: 50px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #555;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  background: #fff;
+  position: relative;
+}
+
+.cell:nth-child(odd) {
+  background: #fffde7;
+}
+
+.cell:nth-child(even) {
+  background: #f1f8e9;
+}
+
+/* ===================== SVG OVERLAY ===================== */
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ===================== PLAYER TOKENS ===================== */
+.p1 {
+  background: sandybrown;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.p2 {
+  background: rgb(176, 10, 135);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+/* ===================== WIN MODAL ===================== */
+#winModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+#winModal.show {
+  display: flex;
+}
+
+#winBox {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 48px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease;
+}
+
+#winEmoji {
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+
+#winBox h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+#winBox p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+}

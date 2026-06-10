@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ular Tangga </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== LAYAR SURAT INTRO ===== -->
+  <div id="letterScreen">
+    <div id="envelope" onclick="openEnvelope()">
+      <div id="envelopeFlap"></div>
+      <div id="envelopeBody">
+        <span id="envelopeLabel"><small>Klik untuk membuka</small></span>
+      </div>
+    </div>
+
+    <div id="letterContent">
+      <div id="letterPaper">
+        <h3>📜 Aturan Permainan Ular Tangga</h3>
+        <ul>
+          <li>🎲 Permainan dimainkan oleh <strong>2 pemain</strong> (Human atau Bot).</li>
+          <li>▶️ Setiap giliran, pemain melempar dadu untuk bergerak maju.</li>
+          <li>🪜 Jika berhenti di <strong>bawah tangga</strong>, naik ke kotak atas tangga.</li>
+          <li>🐍 Jika berhenti di <strong>kepala ular</strong>, turun ke kotak ekor ular.</li>
+          <li>🏁 Pemain pertama yang mencapai kotak <strong>100</strong> menang!</li>
+          <li>⚠️ Jika dadu melebihi kotak 100, pemain tetap di posisi 100.</li>
+        </ul>
+        <p class="letterSign">— Selamat Bermain! —</p>
+        <button id="startBtn" onclick="closeLetter()">Mengerti, Mulai Bermain!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== KONTEN GAME ===== -->
+  <div id="gameWrapper" style="display:none;">
+    <h2>Ular Tangga</h2>
+
+    <div id="setup">
+      <p>Pilih tipe masing-masing pemain:</p>
+      <div id="playerTypes"></div>
+      <button onclick="startGame()">Mulai Game</button>
+    </div>
+
+    <button id="rollBtn" onclick="rollDice()" style="display:none;">
+      Lempar Dadu
+    </button>
+    <button id="lanjutBtn" style="display:none;">
+      Lanjut 
+    </button>
+
+    <p id="info">Pilih tipe pemain dan klik Mulai Game</p>
+
+    <!-- ===== PAPAN PERMAINAN ===== -->
+  <div class="container">
+    <svg id="svg" width="500" height="500"></svg>
+    <div class="board" id="board"></div>
+  </div>
+
+  <!-- ===== MODAL MENANG ===== -->
+  <div id="winModal">
+    <div id="winBox">
+      <div id="winEmoji">🎉</div>
+      <h2 id="winText">Player 1 Menang!</h2>
+      <p>Mau main lagi?</p>
+      <button onclick="restartGame()">Main Lagi</button>
+    </div>
+  </div>
+
+</div> <!-- penutup gameWrapper -->
+
+  <script src="game-UlarTangga.js"></script>
+</body>
+</html>

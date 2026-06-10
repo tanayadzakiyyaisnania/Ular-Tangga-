@@ -1,0 +1,15 @@
+{
+  "name": "ular-tangga",
+  "version": "1.0.0",
+  "description": "Game Ular Tangga berbasis browser dengan SVG",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "author": "",
+  "license": "MIT"
+}
