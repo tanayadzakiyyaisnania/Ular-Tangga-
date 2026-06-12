@@ -1,8 +1,6 @@
-// ============================================================
 //  game-UlarTangga.js  —  Logika utama permainan Ular Tangga
-// ============================================================
 
-// ---------- KONSTANTA ----------
+// KONSTANTA
 const SNAKES = {
   16: 6,
   48: 30,
@@ -23,12 +21,12 @@ const LADDERS = {
   71: 92,
 };
 
-// ---------- STATE GLOBAL ----------
+//  STATE GLOBAL 
 let players = [];
 let currentPlayer = 0;
 const cellMap = {}; // { cellNumber: { x, y } }
 
-// ---------- REFERENSI DOM ----------
+//  REFERENSI DOM 
 const boardEl = document.getElementById('board');
 const svgEl = document.getElementById('svg');
 const infoEl = document.getElementById('info');
@@ -37,9 +35,9 @@ const rollBtn = document.getElementById('rollBtn');
 const PLAYER_COUNT = 2;
 const playerTypesEl = document.getElementById('playerTypes');
 
-// ============================================================
+
 //  INISIALISASI PAPAN
-// ============================================================
+
 
 /**
  * Membangun grid 10×10 dengan penomoran zig-zag,
@@ -73,9 +71,7 @@ function buildBoard() {
   });
 }
 
-// ============================================================
 //  GAMBAR ELEMEN SVG
-// ============================================================
 
 /** Menggambar ular berbentuk kurva Bezier dari `from` → `to`. */
 function drawSnake(from, to) {
@@ -179,9 +175,7 @@ function drawAllSnakesAndLadders() {
   }
 }
 
-// ============================================================
 //  SETUP PEMAIN
-// ============================================================
 
 /** Render pilihan tipe (human/bot) untuk setiap pemain. */
 function updatePlayerOptions() {
@@ -215,9 +209,8 @@ function startGame() {
   nextTurn();
 }
 
-// ============================================================
+
 //  RENDER
-// ============================================================
 
 /** Perbarui tampilan papan dan token pemain. */
 function render() {
@@ -240,9 +233,7 @@ function render() {
   infoEl.textContent = `Giliran: Player ${currentPlayer + 1} (${players[currentPlayer].type})`;
 }
 
-// ============================================================
 //  GILIRAN & LOGIKA GAME
-// ============================================================
 
 /** Lempar dadu — hanya dipakai oleh pemain human (via tombol). */
 function rollDice() {
@@ -308,9 +299,7 @@ function lanjutTurn(p, dice) {
   nextTurn();
 }
 
-// ============================================================
 //  HELPER UTILITAS SVG
-// ============================================================
 
 /** Buat elemen SVG dengan namespace yang benar. */
 function createSVG(tag) {
@@ -324,17 +313,17 @@ function setAttrs(el, attrs) {
   }
 }
 
-// ============================================================
+
 //  ENTRY POINT
-// ============================================================
+
 
 // Inisialisasi saat halaman dimuat
 buildBoard();
 drawAllSnakesAndLadders();
 updatePlayerOptions();
-// ============================================================
+
 //  FUNGSI SURAT INTRO
-// ============================================================
+
 
 /** Animasi buka amplop → tampilkan surat aturan */
 function openEnvelope() {
