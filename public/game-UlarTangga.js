@@ -1,5 +1,3 @@
-//  game-UlarTangga.js  —  Logika utama permainan Ular Tangga
-
 // KONSTANTA
 const SNAKES = {
   16: 6,
