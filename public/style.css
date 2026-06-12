@@ -1,4 +1,4 @@
-/* ===================== RESET & BASE ===================== */
+/*  RESET & BASE  */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,7 +19,7 @@ h2 {
   color: #333;
 }
 
-/* ===================== LETTER SCREEN ===================== */
+/*  LETTER SCREEN  */
 #letterScreen {
   display: flex;
   flex-direction: column;
@@ -159,7 +159,7 @@ h2 {
   background: #388e3c;
 }
 
-/* ===================== SETUP PANEL ===================== */
+/*  SETUP PANEL  */
 #setup {
   background: #fff;
   border: 1px solid #ddd;
@@ -192,7 +192,7 @@ h2 {
   margin-bottom: 4px;
 }
 
-/* ===================== BUTTONS ===================== */
+/*  BUTTONS  */
 button {
   background: #4a90e2;
   color: white;
@@ -214,7 +214,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* ===================== INFO BAR ===================== */
+/*  INFO BAR  */
 #info {
   font-size: 16px;
   font-weight: bold;
@@ -223,14 +223,14 @@ button:disabled {
   min-height: 24px;
 }
 
-/* ===================== GAME CONTAINER ===================== */
+/*  GAME CONTAINER  */
 .container {
   position: relative;
   width: 500px;
   margin: 16px auto;
 }
 
-/* ===================== BOARD GRID ===================== */
+/*  BOARD GRID  */
 .board {
   display: grid;
   grid-template-columns: repeat(10, 50px);
@@ -259,7 +259,7 @@ button:disabled {
   background: #f1f8e9;
 }
 
-/* ===================== SVG OVERLAY ===================== */
+/*  SVG OVERLAY  */
 svg {
   position: absolute;
   top: 0;
@@ -268,7 +268,7 @@ svg {
   z-index: 10;
 }
 
-/* ===================== PLAYER TOKENS ===================== */
+/*  PLAYER TOKENS  */
 .p1 {
   background: sandybrown;
   color: white;
@@ -296,7 +296,7 @@ svg {
   font-weight: bold;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
-/* ===================== WIN MODAL ===================== */
+/*  WIN MODAL  */
 #winModal {
   display: none;
   position: fixed;
